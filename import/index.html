@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <meta charset="UTF-8" /> 
+  <meta name="author" content="Havens" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+  <meta charset="UTF-8" /> 
+  <meta name="author" content="Havens" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+  <meta name="msapplication-TileColor" content="#da532c" /> 
+  <meta name="msapplication-config" content="assets/favi/browserconfig.xml" /> 
+  <meta name="theme-color" content="#ffffff" /> 
+  <!-- Facebook Cards --> 
+  <meta property="og:image" content="https://wtipwallet.havens.space/import/assets/img/og-image.jpg" /> 
+  <meta property="og:image:width" content="279" /> 
+  <meta property="og:image:height" content="279" /> 
+  <meta property="og:description" content="Convert your wallet into paper wallet!" /> 
+  <meta property="og:title" content="Worktips Paper Wallet" /> 
+  <meta property="og:url" content="http://havens.space/" /> 
+  <!-- Twitter Cards --> 
+  <meta name="twitter:card" content="summary" /> 
+  <meta name="twitter:creator" content="@HavensYT" /> 
+  <meta name="twitter:url" content="https://twitter.com/HavensYT" /> 
+  <meta name="twitter:title" content="Worktips Paper Wallet" /> 
+  <meta name="twitter:description" content="Convert your wallet into paper wallet!" /> 
+  <meta property="og:image" content="https://wtipwallet.havens.space/import/assets/img/og-image.jpg" /> 
+  <!-- Schema.org --> 
+  <meta itemprop="name" content="Worktips Paper Wallet" /> 
+  <meta itemprop="description" content="Convert your wallet into paper wallet!" /> 
+  <meta itemprop="image" content="https://wtipwallet.havens.space/import/assets/img/og-image.jpg" /> 
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags --> 
+  <title>Worktips Paper Wallet</title> 
+  <link rel="stylesheet" href="assets/css/style.css" /> 
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css" /> 
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous" /> 
+  <!-- Favicon --> 
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favi/apple-touch-icon.png" /> 
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favi/favicon-32x32.png" /> 
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favi/favicon-16x16.png" /> 
+  <link rel="manifest" href="assets/favi/site.webmanifest" /> 
+  <link rel="shortcut icon" href="assets/favi/favicon.ico" /> 
+  <script src="asset/js/jquery-3.3.1.min.js"></script> 
+  <!-- Global site tag (gtag.js) - Google Analytics --> 
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-119022403-1"></script> 
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-119022403-1');
+</script> 
+ </head> 
+ <body> 
+  <div class="header"> 
+   <img src="assets/img/wtip.png" width="200px" height="200px" />
+   <h1>Worktips Paper Wallet</h1> 
+   <p>Made by <i class="fas fa-thumbs-up"></i> <a href="https://dru.wtf" style="color: #fff" target="_blank">Havens</a></p> 
+  </div> 
+  <div class="wallet" id="wallet"> 
+   <img src="assets/img/keysworktips.png" class="imagebg" /> 
+   <div class="amount-added-text"></div> 
+   <div class="note-text" id="mnemonic_widgetct"></div> 
+   <!-- Seed Phrase --> 
+   <div class="date-text"></div> 
+   <div id="spend_key_widgetct" class="spend_key_widget"></div> 
+   <!-- Private Spend Key --> 
+   <div id="address_widgetct" class="address_widget"></div> 
+   <!-- Public address --> 
+   <div>
+    <img id="spendqrct" style="width:80px;height:80px" class="qr-secret" src="https://api.qrserver.com/v1/create-qr-code/?data=" onerror="this.src='assets/img/80x80.png'" />
+   </div> 
+   <!-- QR Code Spend Key --> 
+   <div>
+    <img id="publicqrct" style="width:80px;height:80px" class="qr-address" src="https://api.qrserver.com/v1/create-qr-code/?data=" onerror="this.src='assets/img/80x80.png'" />
+   </div> 
+   <!-- QR Code Public address --> 
+   <div id="view_key_widgetct" class="view_key_widget"></div> 
+   <!-- Private View Key --> 
+   <div>
+    <img id="viewqrct" style="width:80px;height:80px" class="qr-view" src="https://api.qrserver.com/v1/create-qr-code/?data=" onerror="this.src='assets/img/80x80.png'" />
+   </div> 
+   <!-- QR Code Private View Key --> 
+  </div> 
+  <div class="container"> 
+   <div class="wallettxt"> 
+    <h3>Public address</h3> 
+    <p>Write down your public address. Anyone with this address can send you money.</p> 
+    <div class="input-group"> 
+     <input type="text" id="publicqr" class="form-control" placeholder="Public Address" aria-describedby="basic-addon2" onkeyup="sync1(this)" onblur="generateBarCode1();" /> 
+     <div class="input-group-append"> 
+      <button class="btn btn-light" type="button" data-clipboard-target="#"><i class="far fa-copy" style="color: #FF5722"></i></button> 
+     </div> 
+    </div> 
+    <h3>Private Spend Key</h3> 
+    <p>Print or write down these keys and keep them safe. Without them you cannot access your money. There are no second chances.</p> 
+    <div class="input-group"> 
+     <input type="text" id="spendqr" class="form-control" placeholder="Private Spend Key" aria-describedby="basic-addon2" value="" onkeyup="sync2(this)" onblur="generateBarCode2();" /> 
+     <div class="input-group-append"> 
+      <button class="btn btn-light" type="button" data-clipboard-target="#"><i class="far fa-copy" style="color: #FF5722"></i></button> 
+     </div> 
+    </div> 
+    <h3>Private View Key</h3> 
+    <div class="input-group"> 
+     <input type="text" id="viewqr" class="form-control" placeholder="Private View Key" aria-describedby="basic-addon2" value="" onkeyup="sync3(this)" onblur="generateBarCode3();" /> 
+     <div class="input-group-append"> 
+      <button class="btn btn-light" type="button" data-clipboard-target="#"><i class="far fa-copy" style="color: #FF5722"></i></button> 
+     </div> 
+    </div> 
+    <h3>Seed Phrase</h3> 
+    <p>Paste your seed phrase and keys. If you lose your wallet, these can be used to restore your money. That also means you need to keep them safe and private. Leave blank or write what you want if you do not have a seed phrase!</p> 
+    <div class="input-group"> 
+     <input type="text" class="form-control" placeholder="Seed Phrase" aria-describedby="basic-addon2" value="" onkeyup="sync4(this)" /> 
+     <div class="input-group-append"> 
+      <button class="btn btn-light" type="button" data-clipboard-target="#"><i class="far fa-copy" style="color: #FF5722"></i></button> 
+     </div> 
+    </div> 
+   </div> 
+  </div> 
+  <div class="buttons"> 
+   <button type="button" class="btn btn-light" onclick="window.print()">Print</button> 
+   <a class="btn btn-light" href="https://wtipwallet.havens.space" role="button">Wallet Generator</a> 
+   <br /> 
+   <h2 class="howfold">How to fold your paper wallet?</h2> 
+   <div class="instruction"> 
+    <img src="assets/img/instructionsorange.jpg" /> 
+   </div> 
+   <br /> 
+   <footer> 
+    <div class="donation"> 
+     <kbd class="pull-center"><i class="fab fa-bitcoin fa-lg" style="color: #ff6d42;margin-top: 4px; margin-left: 1px;"></i>&nbsp;<strong><span style="color: #fff">1HavensModLuN32dmkHvTksv1hiv776MQt</span></strong></kbd> 
+     <div style="padding-top: 10px;"></div> 
+     <kbd class="pull-center"><img src="assets/img/wtip.png" width="18px" height="18px" class="wtiplogodona" />&nbsp;<strong><span style="color: #fff">Wtipu2SQ24Gg5ZbXqLG1ebBTiEvEfqU1UCmZgqWF4mAMCNe9MRCynztA1Znu7cRuBCBXqR32YZFH793KhAJFXFft1tMXWv3RXw</span></strong></kbd> 
+    </div> 
+   </footer> 
+   <script src="assets/js/clipboard.min.js"></script> 
+   <script src="assets/js/wallet.js"></script> 
+   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> 
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script> 
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> 
+   <script>
+new ClipboardJS('.btn');
+    </script>  
+  </div>
+ </body>
+</html>
