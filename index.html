@@ -26,9 +26,9 @@
   <meta itemprop="description" content="Generate and print your WTIP personal wallet!" /> 
   <meta itemprop="image" content="https://wtipwallet.havens.space/assets/img/og-image.jpg" /> 
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags --> 
-  <title>Worktips Wallet Generator</title> 
+  <title>Worktips Wallet Generator</title>
   <link rel="stylesheet" href="assets/css/style.css" /> 
-  <link rel="stylesheet" href="assets/css/bootstrap.min.css" /> 
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous" /> 
   <!-- Favicon --> 
   <link rel="apple-touch-icon" sizes="180x180" href="assets/favi/apple-touch-icon.png" /> 
@@ -37,6 +37,7 @@
   <link rel="manifest" href="assets/favi/site.webmanifest" /> 
   <link rel="shortcut icon" href="assets/favi/favicon.ico" /> 
   <!-- Global site tag (gtag.js) - Google Analytics --> 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-119022403-1"></script> 
   <script>
   window.dataLayer = window.dataLayer || [];
@@ -46,6 +47,7 @@
 </script> 
  </head> 
  <body onload="js:genwallet(null)"> 
+  <br>
   <div class="header"> 
    <img src="assets/img/wtip.png" width="200px" height="200px" />
    <h1>Worktips Wallet Generator</h1> 
@@ -54,18 +56,18 @@
   <div class="wallet" id="wallet"> 
    <img src="assets/img/keysworktips.png" class="imagebg" /> 
    <div class="amount-added-text"></div> 
-   <div class="note-text" id="mnemonic_widget"></div> 
+   <div class="note-text" id="mnemonic_widget2"></div> 
    <!-- Seed Phrase --> 
    <div class="date-text"></div> 
-   <div id="spend_key_widget" class="spend_key_widget"></div> 
+   <div id="spend_key_widget2" class="spend_key_widget"></div> 
    <!-- Private Spend Key --> 
-   <div id="address_widget" class="address_widget"></div> 
+   <div id="address_widget2" class="address_widget"></div> 
    <!-- Public address --> 
    <div id="qrcodeSecret" class="qr-secret"></div> 
    <!-- QR Code Spend and View Key --> 
    <div id="address_qr_widget" class="qr-address"></div> 
    <!-- All QR Code --> 
-   <div id="view_key_widget" class="view_key_widget"></div> 
+   <div id="view_key_widget2" class="view_key_widget"></div> 
    <!-- Private View Key --> 
    <div id="qrcodeView" class="qr-view"></div> 
    <!-- QR Code Private View Key --> 
@@ -75,32 +77,32 @@
     <h3>Public address</h3> 
     <p>Write down your public address, or copy paste it somewhere. Anyone with this address can send you money.</p> 
     <div class="input-group"> 
-     <input type="text" id="address_widget2" class="form-control" placeholder="Public Address" aria-describedby="basic-addon2" readonly="" value="" /> 
+     <input type="text" id="address_widget" class="form-control" placeholder="Public Address" aria-describedby="basic-addon2" readonly="" value="" /> 
      <div class="input-group-append"> 
-      <button class="btn btn-light" type="button" data-clipboard-target="#address_widget2"><i class="far fa-copy" style="color: #FF5722"></i></button> 
+      <button class="btn btn-light" type="button" data-clipboard-target="#address_widget"><i class="far fa-copy" style="color: #FF5722"></i></button> 
      </div> 
     </div> 
     <h3>Private Spend Key</h3> 
     <p>Print or write down these keys and keep them safe. Without them you cannot access your money. There are no second chances.</p> 
     <div class="input-group"> 
-     <input type="text" id="spend_key_widget2" class="form-control" placeholder="Private Spend Key" aria-describedby="basic-addon2" readonly="" value="" /> 
+     <input type="text" id="spend_key_widget" class="form-control" placeholder="Private Spend Key" aria-describedby="basic-addon2" readonly="" value="" /> 
      <div class="input-group-append"> 
-      <button class="btn btn-light" type="button" data-clipboard-target="#spend_key_widget2"><i class="far fa-copy" style="color: #FF5722"></i></button> 
+      <button class="btn btn-light" type="button" data-clipboard-target="#spend_key_widget"><i class="far fa-copy" style="color: #FF5722"></i></button> 
      </div> 
     </div> 
     <h3>Private View Key</h3> 
     <div class="input-group"> 
-     <input type="text" id="view_key_widget2" class="form-control" placeholder="Private View Key" aria-describedby="basic-addon2" readonly="" value="" /> 
+     <input type="text" id="view_key_widget" class="form-control" placeholder="Private View Key" aria-describedby="basic-addon2" readonly="" value="" /> 
      <div class="input-group-append"> 
-      <button class="btn btn-light" type="button" data-clipboard-target="#view_key_widget2"><i class="far fa-copy" style="color: #FF5722"></i></button> 
+      <button class="btn btn-light" type="button" data-clipboard-target="#view_key_widget"><i class="far fa-copy" style="color: #FF5722"></i></button> 
      </div> 
     </div> 
     <h3>Seed Phrase</h3> 
     <p>Copy your seed phrase and keys. If you lose your wallet, these can be used to restore your money. That also means you need to keep them safe and private.</p> 
     <div class="input-group"> 
-     <input type="text" id="mnemonic_widget2" class="form-control" placeholder="Seed Phrase" aria-describedby="basic-addon2" readonly="" value="" /> 
+     <input type="text" id="mnemonic_widget" class="form-control" placeholder="Seed Phrase" aria-describedby="basic-addon2" readonly="" value="" /> 
      <div class="input-group-append"> 
-      <button class="btn btn-light" type="button" data-clipboard-target="#mnemonic_widget2"><i class="far fa-copy" style="color: #FF5722"></i></button> 
+      <button class="btn btn-light" type="button" data-clipboard-target="#mnemonic_widget"><i class="far fa-copy" style="color: #FF5722"></i></button> 
      </div> 
     </div> 
    </div> 
@@ -112,12 +114,18 @@
    <button class="btn btn-light" type="button" data-toggle="collapse" data-target="#collapseRestore" aria-expanded="false" aria-controls="collapseExample">Restore Keys</button> 
    <div class="collapse" id="collapseRestore"> 
     <div class="card-body"> 
-     <input id="seed_phrase" type="text" style="width:30%;" class="form-control2 collapseRestore text-center" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="Enter your seed phrase words here." /> 
+     <input id="seed_phrase" type="text" style="width:30%;" class="form-control2 collapseRestore text-center" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="Enter your seed phrase words here." /><br><br>
+     <div class="container">
+        <div class="card card-body">
+            <p>Beware the QR code is not available when you do a restoration. To have a QR code go on <a href="https://wtipwallet.havens.space/import/" style="color: #FF5722">wtipwallet.havens.space/import</a> and place your credentials to be able to use it!</p> 
+        </div>
+      </div>
      <div class="Restorebtn"> 
-      <button class="btn btn-light btn-sm" onclick="js:restore_keys(null);" type="button" value="Restore keys" style="height: 37px;">Restore</button> 
+      <button id="removeqrdiv" class="btn btn-light btn-sm" onclick="js:restore_keys(null);" type="button" value="Restore keys" style="height: 37px;">Restore</button> 
      </div> 
     </div> 
-   </div> 
+   </div>
+
    <br /> 
    <h2 class="howfold">How to fold your paper wallet?</h2> 
    <div class="instruction"> 
@@ -130,6 +138,8 @@
      <div style="padding-top: 10px;"></div> 
      <kbd class="pull-center"><img src="assets/img/wtip.png" width="18px" height="18px" class="wtiplogodona" />&nbsp;<strong><span style="color: #fff">Wtipu2SQ24Gg5ZbXqLG1ebBTiEvEfqU1UCmZgqWF4mAMCNe9MRCynztA1Znu7cRuBCBXqR32YZFH793KhAJFXFft1tMXWv3RXw</span></strong></kbd> 
     </div> 
+<br>
+    <P style="text-align: center;">Site in Beta</P>
    </footer> 
    <script src="assets/js/clipboard.min.js"></script> 
    <script src="assets/js/wallet.js"></script> 

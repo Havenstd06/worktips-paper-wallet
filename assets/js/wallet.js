@@ -35,15 +35,20 @@ var restore_keys = function(lang) {
 
     address_widget.innerHTML = keys.public_addr;
     address_widget2.innerHTML = keys.public_addr;
+    address_widget.value = keys.public_addr;
+
 
     mnemonic_widget.innerHTML = seed_phrase;
     mnemonic_widget2.innerHTML = seed_phrase;
+    mnemonic_widget.value = seed_phrase;
 
     spend_key_widget.innerHTML = keys.spend.sec;
     spend_key_widget2.innerHTML = keys.spend.sec;
+    spend_key_widget.value = keys.spend.sec;
 
     view_key_widget.innerHTML = keys.view.sec;
     view_key_widget2.innerHTML = keys.view.sec;
+    view_key_widget.value = keys.view.sec;
 };
 
 
@@ -59,7 +64,6 @@ var genwallet = function(lang) {
     var address_widget2 = document.getElementById("address_widget2");
 
     var address_qr_widget = document.getElementById("address_qr_widget");
-    var address_qr_widgetct = document.getElementById("address_qr_widgetct");
 
     var user_entropy_widget = Math.floor(100000000 + Math.random() * 900000000);
 
@@ -69,19 +73,19 @@ var genwallet = function(lang) {
 
     address_widget.innerHTML = keys.public_addr;
     address_widget2.innerHTML = keys.public_addr;
-    address_widget2.value = keys.public_addr;
+    address_widget.value = keys.public_addr;
 
     mnemonic_widget.innerHTML = mnemonic;
     mnemonic_widget2.innerHTML = mnemonic;
-    mnemonic_widget2.value = mnemonic;
+    mnemonic_widget.value = mnemonic;
 
     spend_key_widget.innerHTML = keys.spend.sec;
     spend_key_widget2.innerHTML = keys.spend.sec;
-    spend_key_widget2.value = keys.spend.sec;
+    spend_key_widget.value = keys.spend.sec;
 
     view_key_widget.innerHTML = keys.view.sec;
     view_key_widget2.innerHTML = keys.view.sec;
-    view_key_widget2.value = keys.view.sec;
+    view_key_widget.value = keys.view.sec;
 
     var typeNumber = 0;
     var errorCorrectionLevel = 'L';
@@ -118,3 +122,11 @@ var genwallet = function(lang) {
 
 
 };
+
+$(document).ready(function(){
+    $("#removeqrdiv").click(function(){
+        $("#address_qr_widget").remove();
+        $("#qrcodeSecret").remove();
+        $("#qrcodeView").remove();
+    });
+});

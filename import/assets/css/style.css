@@ -1,5 +1,9 @@
 @charset "UTF-8";
-html { background-color:#FF5722; }
+html { 
+  background-image: url("http://worktips.info/img/site-background.jpg");
+  background-repeat: no-repeat;
+  background-color:#1E1F24; 
+}
 
 body {
   font-family:'SF UI Display Medium',sans-serif;
