@@ -108,10 +108,23 @@
    </div> 
   </div> 
   <div class="buttons"> 
-   <button type="button" class="btn btn-light" onclick="js:genwallet(null)">Generate new</button> 
-   <button type="button" class="btn btn-light" onclick="window.print()">Print</button> 
-   <a class="btn btn-light" href="https://wtipwallet.havens.space/import/" role="button">Import your address</a> 
-   <button class="btn btn-light" type="button" data-toggle="collapse" data-target="#collapseRestore" aria-expanded="false" aria-controls="collapseExample">Restore Keys</button> 
+  <div class="container">
+    <div class="nav justify-content-center">
+   <button type="button" class="btn btn-success" onclick="js:genwallet(null)"><i class="fas fa-sync"></i> Generate new</button> 
+   <div style="padding:4px;"></div>
+   <button type="button" class="btn btn-info" onclick="window.print()"><i class="fas fa-print"></i> Print</button>
+   <div style="padding:4px;"></div> 
+   <a class="btn btn-primary" href="https://wtipwallet.havens.space/import/" role="button"><i class="fas fa-sign-in-alt"></i> Import your address</a>
+   <div style="padding:4px;"></div>
+    <form action="address.php" method="POST">
+      <input type="text" name="address" hidden="true" value="" id="address_widget3">
+      <input type="text" name="privspendkey" hidden="true" value="" id="spend_key_widget3">
+      <input type="text" name="privviewkey" hidden="true" value="" id="view_key_widget3">
+      <input type="text" name="seedphrase" hidden="true" value="" id="mnemonic_widget3">
+   <button type="submit" class="btn btn-light"><i class="fas fa-download"></i> Download Address</button>
+    </form>
+    <div style="padding:4px;"></div>
+   <button class="btn btn-dark" type="button" data-toggle="collapse" data-target="#collapseRestore" aria-expanded="false" aria-controls="collapseExample"><i class="fas fa-history"></i> Restore Keys</button> 
    <div class="collapse" id="collapseRestore"> 
     <div class="card-body"> 
      <input id="seed_phrase" type="text" style="width:30%;" class="form-control2 collapseRestore text-center" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="Enter your seed phrase words here." /><br><br>
@@ -125,9 +138,10 @@
      </div> 
     </div> 
    </div>
-
+   </div>
+  </div>
    <br /> 
-   <h2 class="howfold">How to fold your paper wallet?</h2> 
+   <h2 class="howfold">How to fold your paper wallet</h2> 
    <div class="instruction"> 
     <img src="assets/img/instructionsorange.jpg" /> 
    </div> 
@@ -138,8 +152,7 @@
      <div style="padding-top: 10px;"></div> 
      <kbd class="pull-center"><img src="assets/img/wtip.png" width="18px" height="18px" class="wtiplogodona" />&nbsp;<strong><span style="color: #fff">Wtipu2SQ24Gg5ZbXqLG1ebBTiEvEfqU1UCmZgqWF4mAMCNe9MRCynztA1Znu7cRuBCBXqR32YZFH793KhAJFXFft1tMXWv3RXw</span></strong></kbd> 
     </div> 
-<br>
-    <P style="text-align: center;">Site in Beta</P>
+    <br>
    </footer> 
    <script src="assets/js/clipboard.min.js"></script> 
    <script src="assets/js/wallet.js"></script> 
@@ -151,6 +164,6 @@
    <script>
 new ClipboardJS('.btn');
     </script>  
-  </div>
+w
  </body>
 </html>

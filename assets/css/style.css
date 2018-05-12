@@ -27,7 +27,6 @@ body {
   padding:.375rem .75rem;
 }
 
-.imagebg { border:2px solid #fff; }
 
 .btn2 {
   display:inline-block;
@@ -65,12 +64,17 @@ body {
 
 .wallet img,
 .instruction img { width:100%; }
+.instruction img { 
+  width:100%;   
+ -webkit-border-radius: 18px;
+ border-radius: 18px; 
+}
 
 .instruction {
   width:1000px;
   position:relative;
-  border:2px dotted #999;
   margin:30px auto 20px;
+
 }
 
 .spend_key_widget {
