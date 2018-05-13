@@ -6,7 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" /> 
   <meta name="msapplication-TileColor" content="#da532c" /> 
   <meta name="msapplication-config" content="assets/favi/browserconfig.xml" /> 
-  <meta name="theme-color" content="#ffffff" /> 
+  <meta name="theme-color" content="#ffffff" />
+  <meta name="viewport" content="width=1024"> 
   <!-- Facebook Cards --> 
   <meta property="og:image" content="https://wtipwallet.havens.space/assets/img/og-image.jpg" /> 
   <meta property="og:image:width" content="279" /> 
@@ -129,18 +130,24 @@
     <div class="card-body"> 
      <input id="seed_phrase" type="text" style="width:30%;" class="form-control2 collapseRestore text-center" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="Enter your seed phrase words here." /><br><br>
      <div class="container">
-        <div class="card card-body">
+        <div class="card card-body col-xs-12 col-md-8">
             <p>Beware the QR code is not available when you do a restoration. To have a QR code go on <a href="https://wtipwallet.havens.space/import/" style="color: #FF5722">wtipwallet.havens.space/import</a> and place your credentials to be able to use it!</p> 
         </div>
       </div>
      <div class="Restorebtn"> 
-      <button id="removeqrdiv" class="btn btn-light btn-sm" onclick="js:restore_keys(null);" type="button" value="Restore keys" style="height: 37px;">Restore</button> 
+      <button id="removeqrdiv" class="btn btn-warning btn-sm" onclick="js:restore_keys(null);" type="button" value="Restore keys" style="height: 37px;">Restore</button> 
      </div> 
     </div> 
    </div>
    </div>
   </div>
-   <br /> 
+   <br />
+   <br />
+	<div class="container">
+		<div class="card card-body col-xs-12 col-md-8">
+			<p>Note: To import this wallet to the GUI client, you must first import it via the CLI client then using the .wallet file, you can open it within the GUI client.</p>
+		</div>
+	</div>
    <h2 class="howfold">How to fold your paper wallet</h2> 
    <div class="instruction"> 
     <img src="assets/img/instructionsorange.jpg" /> 
@@ -164,6 +171,5 @@
    <script>
 new ClipboardJS('.btn');
     </script>  
-w
  </body>
 </html>

@@ -277,3 +277,9 @@ button:hover { background-color:#C1F0FF; }
   height:160px;
   margin-top:15px;
 }
+
+.card {
+  margin: 0 auto; /* Added */
+        float: none; /* Added */
+        margin-bottom: 10px; /* Added */
+}
